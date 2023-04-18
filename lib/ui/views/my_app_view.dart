@@ -1,5 +1,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:new_smp_dss/enums/enum_alternatif.dart';
+import 'package:new_smp_dss/enums/enum_criteria.dart';
+import 'package:new_smp_dss/service/waspas.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -151,12 +154,11 @@ class _MyFormState extends State<MyForm> {
                   child: const Text('Submit'),
                   onPressed: () {
                     if (kDebugMode) {
-                      print('Name: $name');
-                      print('Grade: ${grades[grade]['title']}');
-                      print('Distance: ${distances[distance]['title']}');
-                      print('Income: ${incomes[income]['title']}');
-                      print(
-                          'Number of Students: ${studentsList[students]['title']}');
+                      var result = WaspasService()
+                          .getWaspasRank(alternatives, criterias);
+                      for (var r in result) {
+                        print("${r.name} ${r.result}");
+                      }
                     }
                   },
                 ),
