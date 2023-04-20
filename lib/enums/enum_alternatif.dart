@@ -5,35 +5,43 @@ final List<Alternatif> alternatives = [
   Alternatif(
       name: "SMP SWASTA MUHAMMADIYAH 56",
       criteriaValue: ['B', const LatLng(3.6155248, 98.5269997), 120000, 78],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP MUHAMMADIYAH 12",
       criteriaValue: ["B", const LatLng(3.604607, 98.486002), 70000, 41],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP AN NADWA ISLAMIC CENTRE",
       criteriaValue: ["B", const LatLng(3.6211032, 98.5093101), 120000, 26],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP TAMAN SISWA",
       criteriaValue: ["B", const LatLng(3.6037459, 98.4811591), 170000, 21],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP AHMAD YANI",
       criteriaValue: ["A", const LatLng(3.611526, 98.492154), 460000, 104],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP PALAPA",
       criteriaValue: ["A", const LatLng(3.55941, 98.4964847), 15000, 15],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP GAJAH MADA",
       criteriaValue: ["A", const LatLng(3.6462774, 98.4655655), 320000, 29],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP ST. THOMAS 2",
       criteriaValue: ["A", const LatLng(3.6067025, 98.5041707), 250000, 32],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP MELATI",
       criteriaValue: [
@@ -42,7 +50,8 @@ final List<Alternatif> alternatives = [
         30000,
         22
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP PABA",
       criteriaValue: [
@@ -51,7 +60,8 @@ final List<Alternatif> alternatives = [
         150000,
         58
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP AL FITYAH",
       criteriaValue: [
@@ -60,7 +70,8 @@ final List<Alternatif> alternatives = [
         550000,
         58
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP AL KAFFAH",
       criteriaValue: [
@@ -69,7 +80,8 @@ final List<Alternatif> alternatives = [
         330000,
         55
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP IT YAYASAN HAJJAH FAUZIAH",
       criteriaValue: [
@@ -78,7 +90,8 @@ final List<Alternatif> alternatives = [
         350000,
         27
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   Alternatif(
       name: "SMP ISLAM TERPADU AZIZIYAH",
       criteriaValue: [
@@ -87,6 +100,7 @@ final List<Alternatif> alternatives = [
         150000,
         73
       ],
-      result: 0.0),
+      result: 0.0,
+      distance: 0.0),
   // Alternatif(name: "", criteriaValue: [], result: 0.0),
 ];

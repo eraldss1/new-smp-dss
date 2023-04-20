@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:flutter/foundation.dart';
 import 'package:latlng/latlng.dart';
 import 'package:new_smp_dss/service/haversine.dart';
 
@@ -19,7 +20,7 @@ class WaspasService {
         element.criteriaValue[0] = 2;
       } else if (element.criteriaValue[0] == 'C') {
         element.criteriaValue[0] = 1;
-      } else {
+      } else if (element.criteriaValue[0] == 'D') {
         element.criteriaValue[0] = 0;
       }
     }
@@ -33,8 +34,11 @@ class WaspasService {
 
     var result = la;
     for (var element in result) {
-      element.criteriaValue[1] =
-          H.haversineFormula(origin, element.criteriaValue[1]);
+      element.distance = H.haversineFormula(origin, element.criteriaValue[1]);
+
+      // if (kDebugMode) {
+      //   print(element.distance);
+      // }
     }
     return result;
   }
@@ -46,7 +50,11 @@ class WaspasService {
 
     for (int i = 0; i < la.length; i++) {
       for (int j = 0; j < la[0].criteriaValue.length; j++) {
-        decisionMatrix[i][j] = la[i].criteriaValue[j].toDouble();
+        if (j == 1) {
+          decisionMatrix[i][j] = la[i].distance.toDouble();
+        } else {
+          decisionMatrix[i][j] = la[i].criteriaValue[j].toDouble();
+        }
       }
     }
     return decisionMatrix;
@@ -123,21 +131,79 @@ class WaspasService {
     return result;
   }
 
-  List<Alternatif> getWaspasRank(
-      List<Alternatif> listAlternatif, List<Criteria> listCriteria) {
-    List<Alternatif> result = listAlternatif;
+  // Filter data dari form
+  List<Alternatif> filterData(
+      List<Alternatif> la, List<dynamic> filterOptions) {
+    // Filter jarak
+    filterOptions[1] == 0
+        ? filterOptions[1] = 0.75
+        : filterOptions[1] == 1
+            ? filterOptions[1] = 1.5
+            : filterOptions[1] == 2
+                ? filterOptions[1] = 2.25
+                : filterOptions[1] == 3
+                    ? filterOptions[1] = 3
+                    : filterOptions[1] == 4
+                        ? filterOptions[1] = 100
+                        : 0;
+    // Filter SPP
+    filterOptions[2] == 0
+        ? filterOptions[2] = 25000
+        : filterOptions[2] == 1
+            ? filterOptions[2] = 50000
+            : filterOptions[2] == 2
+                ? filterOptions[2] = 75000
+                : filterOptions[2] == 3
+                    ? filterOptions[2] = 100000
+                    : filterOptions[2] == 4
+                        ? filterOptions[2] = 1000000
+                        : 0;
+
+    // Filter Jumlah Murid
+    filterOptions[3] == 0
+        ? filterOptions[3] = 100
+        : filterOptions[3] == 1
+            ? filterOptions[3] = 200
+            : filterOptions[3] == 2
+                ? filterOptions[3] = 300
+                : filterOptions[3] == 3
+                    ? filterOptions[3] = 10000
+                    : 0;
+
+    List<Alternatif> result = la
+        .where((element) =>
+            element.criteriaValue[0] >= filterOptions[0] &&
+            element.distance <= filterOptions[1] &&
+            element.criteriaValue[2] <= filterOptions[2] &&
+            element.criteriaValue[3] <= filterOptions[3])
+        .toList();
+
+    if (kDebugMode) {
+      print(filterOptions);
+      for (var r in result) {
+        print("${r.name} ${r.criteriaValue[0]}");
+      }
+    }
+    return result;
+  }
+
+  List<Alternatif> getWaspasRank(List<Alternatif> listAlternatif,
+      List<Criteria> listCriteria, List<dynamic> filterOptions) {
+    List<Alternatif> result =
+        listAlternatif.map((e) => Alternatif.clone(e)).toList();
 
     result = akreditasiToAngka(result);
     result = latlngToDistance(result);
+    result = filterData(result, filterOptions);
 
-    List<List<double>> decisionMatrix = createDecisionMatrix(listAlternatif);
+    List<List<double>> decisionMatrix = createDecisionMatrix(result);
 
     List<List<double>> normalizedMatrix =
         matrixNormalization(decisionMatrix, listCriteria);
 
-    result = preferenceWeight(listAlternatif, listCriteria, normalizedMatrix);
-
+    result = preferenceWeight(result, listCriteria, normalizedMatrix);
     result = sortAlternatif(result);
+    // result = result.sublist(0, 5);
 
     return result;
   }

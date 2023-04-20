@@ -1,8 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:new_smp_dss/enums/enum_alternatif.dart';
 import 'package:new_smp_dss/enums/enum_criteria.dart';
+import 'package:new_smp_dss/models/alternatif.dart';
+import 'package:new_smp_dss/models/criteria.dart';
 import 'package:new_smp_dss/service/waspas.dart';
+import 'package:new_smp_dss/ui/views/result_view.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -14,17 +16,17 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   String name = "";
-  int grade = 0;
+  int grade = 4;
   int distance = 0;
-  int income = 0;
+  int fee = 0;
   int students = 0;
 
   final List<Map<String, dynamic>> grades = [
-    {'title': 'A', 'value': 0},
-    {'title': 'B+', 'value': 1},
+    {'title': 'D', 'value': 0},
+    {'title': 'C', 'value': 1},
     {'title': 'B', 'value': 2},
-    {'title': 'C', 'value': 3},
-    {'title': 'D', 'value': 4},
+    {'title': 'B+', 'value': 3},
+    {'title': 'A', 'value': 4},
   ];
 
   final List<Map<String, dynamic>> distances = [
@@ -35,7 +37,7 @@ class _MyFormState extends State<MyForm> {
     {'title': '> 3 KM', 'value': 4},
   ];
 
-  final List<Map<String, dynamic>> incomes = [
+  final List<Map<String, dynamic>> fees = [
     {'title': '0 - 25.000', 'value': 0},
     {'title': '26.000 - 50.000', 'value': 1},
     {'title': '51.000 - 75.000', 'value': 2},
@@ -116,8 +118,8 @@ class _MyFormState extends State<MyForm> {
                   decoration: const InputDecoration(
                     labelText: 'Income',
                   ),
-                  value: income,
-                  items: incomes.map<DropdownMenuItem<int>>(
+                  value: fee,
+                  items: fees.map<DropdownMenuItem<int>>(
                       (Map<String, dynamic> income) {
                     return DropdownMenuItem<int>(
                       value: income['value'],
@@ -126,7 +128,7 @@ class _MyFormState extends State<MyForm> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      income = value!;
+                      fee = value!;
                     });
                   },
                 ),
@@ -153,13 +155,23 @@ class _MyFormState extends State<MyForm> {
                 TextButton(
                   child: const Text('Submit'),
                   onPressed: () {
-                    if (kDebugMode) {
-                      var result = WaspasService()
-                          .getWaspasRank(alternatives, criterias);
-                      for (var r in result) {
-                        print("${r.name} ${r.result}");
-                      }
-                    }
+                    List<dynamic> filterOptions = [];
+                    filterOptions.add(grades[grade]['value']);
+                    filterOptions.add(distances[distance]['value']);
+                    filterOptions.add(fees[fee]['value']);
+                    filterOptions.add(studentsList[students]['value']);
+
+                    List<Alternatif> la = [...alternatives];
+                    List<Criteria> lc = [...criterias];
+
+                    var result =
+                        WaspasService().getWaspasRank(la, lc, filterOptions);
+
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                MyResultPage(result: result)));
                   },
                 ),
               ],
