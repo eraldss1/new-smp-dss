@@ -4,6 +4,7 @@ class Alternatif {
   double result;
   double distance;
 
+  // constructor
   Alternatif(
       {required this.name,
       required this.criteriaValue,

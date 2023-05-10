@@ -200,6 +200,7 @@ class WaspasService {
 
     result = akreditasiToAngka(result);
     result = latlngToDistance(result, userLocation);
+    //sampek sini
     result = filterData(result, filterOptions);
 
     List<List<double>> decisionMatrix = createDecisionMatrix(result);
