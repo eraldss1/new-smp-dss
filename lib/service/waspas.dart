@@ -13,15 +13,13 @@ class WaspasService {
     var result = la;
     for (var element in result) {
       if (element.criteriaValue[0] == 'A') {
-        element.criteriaValue[0] = 4;
-      } else if (element.criteriaValue[0] == 'B+') {
-        element.criteriaValue[0] = 3;
+        element.criteriaValue[0] = 5;
       } else if (element.criteriaValue[0] == 'B') {
-        element.criteriaValue[0] = 2;
+        element.criteriaValue[0] = 4;
       } else if (element.criteriaValue[0] == 'C') {
-        element.criteriaValue[0] = 1;
+        element.criteriaValue[0] = 3;
       } else if (element.criteriaValue[0] == 'D') {
-        element.criteriaValue[0] = 0;
+        element.criteriaValue[0] = 2;
       }
     }
     return result;
@@ -30,7 +28,7 @@ class WaspasService {
   // Ubah alternatif latlng ke jarak
   List<Alternatif> latlngToDistance(List<Alternatif> la, LatLng origin) {
     HaversineService H = HaversineService();
-    // LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
+    LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
 
     var result = la;
     for (var element in result) {
@@ -86,14 +84,22 @@ class WaspasService {
       if (listCriteria[i].type == "Benefit") {
         // Persamaan benefit
         double maxXij = getMaxColumn(i, decisionMatrix);
+
         for (int j = 0; j < decisionMatrix.length; j++) {
           normalizationMatrix[j][i] = decisionMatrix[j][i] / maxXij;
         }
       } else if (listCriteria[i].type == "Cost") {
         // Persamaan cost
+        // print(listCriteria[i].name);
         double minXij = getMinColumn(i, decisionMatrix);
+        // print(minXij);
+
         for (int j = 0; j < decisionMatrix.length; j++) {
-          normalizationMatrix[j][i] = minXij / decisionMatrix[j][i];
+          if (decisionMatrix[j][i] == 0) {
+            normalizationMatrix[j][i] = 1;
+          } else {
+            normalizationMatrix[j][i] = minXij / decisionMatrix[j][i];
+          }
         }
       }
     }
@@ -175,9 +181,9 @@ class WaspasService {
         .toList();
 
     if (kDebugMode) {
-      print(filterOptions);
+      // print(filterOptions);
       for (var r in result) {
-        print("${r.name} ${r.criteriaValue[0]}");
+        // print("${r.name} ${r.criteriaValue[2]}");
       }
     }
     return result;
@@ -203,7 +209,10 @@ class WaspasService {
 
     result = preferenceWeight(result, listCriteria, normalizedMatrix);
     result = sortAlternatif(result);
-    result = result.sublist(0, 5);
+
+    if (result.length > 5) {
+      result = result.sublist(0, 5);
+    }
 
     return result;
   }

@@ -6,51 +6,76 @@ class MyResultPage extends StatelessWidget {
 
   const MyResultPage({super.key, required this.result});
 
+  String getAkreditasi(int akreditasiNumber) {
+    if (akreditasiNumber == 5) {
+      return 'A';
+    } else if (akreditasiNumber == 4) {
+      return 'B';
+    } else if (akreditasiNumber == 3) {
+      return 'C';
+    } else if (akreditasiNumber == 2) {
+      return 'D';
+    }
+    return '';
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Hasil WASPAS'),
-      ),
-      body: ListView.builder(
-        itemCount: result.length,
-        itemBuilder: (BuildContext context, int index) {
-          return ListTile(
-            title: Text(result[index].name),
-            subtitle: Text(result[index].result.toString()),
-            onTap: () {
-              showDialog(
-                context: context,
-                builder: (BuildContext context) {
-                  return AlertDialog(
+        appBar: AppBar(
+          title: const Text('Hasil WASPAS'),
+        ),
+        body: result.isNotEmpty
+            ? ListView.builder(
+                itemCount: result.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return ListTile(
                     title: Text(result[index].name),
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        const Text('Akreditasi'),
-                        Text(result[index].criteriaValue[0].toString()),
-                        const Text('Jarak'),
-                        Text(result[index].distance.toString()),
-                        const Text('SPP'),
-                        Text(result[index].criteriaValue[2].toString()),
-                        const Text('Jumlah Murid yang Diterima'),
-                        Text(result[index].criteriaValue[3].toString()),
-                      ],
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.pop(context),
-                        child: const Text('Close'),
-                      ),
-                    ],
+                    subtitle: Text("Nilai WASPAS : ${result[index].result}"),
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          return AlertDialog(
+                            title: Text(result[index].name),
+                            content: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                const Text('Akreditasi'),
+                                Text(getAkreditasi(
+                                    result[index].criteriaValue[0])),
+                                const Padding(padding: EdgeInsets.all(5)),
+                                //
+                                const Text('Jarak'),
+                                Text(
+                                    "${result[index].distance.toStringAsFixed(2)} Km"),
+                                const Padding(padding: EdgeInsets.all(5)),
+                                //
+                                const Text('SPP'),
+                                Text("Rp. ${result[index].criteriaValue[2]}"),
+                                const Padding(padding: EdgeInsets.all(5)),
+                                //
+                                const Text('Jumlah Murid yang Diterima'),
+                                Text("${result[index].criteriaValue[3]} Orang"),
+                              ],
+                            ),
+                            actions: [
+                              TextButton(
+                                onPressed: () => Navigator.pop(context),
+                                child: const Text('Close'),
+                              ),
+                            ],
+                          );
+                        },
+                      );
+                    },
                   );
                 },
-              );
-            },
-          );
-        },
-      ),
-    );
+              )
+            // ignore: avoid_unnecessary_containers
+            : Container(
+                child: const Text('Kosong'),
+              ));
   }
 }

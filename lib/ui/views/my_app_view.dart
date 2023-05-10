@@ -19,7 +19,7 @@ class MyForm extends StatefulWidget {
 
 class _MyFormState extends State<MyForm> {
   String name = "";
-  int grade = 4;
+  int grade = 5;
   int distance = 0;
   int fee = 0;
   int students = 0;
@@ -28,11 +28,10 @@ class _MyFormState extends State<MyForm> {
   double userLng = 0;
 
   final List<Map<String, dynamic>> grades = [
-    {'title': 'D', 'value': 0},
-    {'title': 'C', 'value': 1},
-    {'title': 'B', 'value': 2},
-    {'title': 'B+', 'value': 3},
-    {'title': 'A', 'value': 4},
+    {'title': 'D', 'value': 2},
+    {'title': 'C', 'value': 3},
+    {'title': 'B', 'value': 4},
+    {'title': 'A', 'value': 5},
   ];
 
   final List<Map<String, dynamic>> distances = [
@@ -65,6 +64,8 @@ class _MyFormState extends State<MyForm> {
       userLat = position.latitude;
       userLng = position.longitude;
     });
+    print(position.latitude);
+    print(position.longitude);
   }
 
   @override
@@ -82,7 +83,7 @@ class _MyFormState extends State<MyForm> {
               children: <Widget>[
                 TextFormField(
                   decoration: const InputDecoration(
-                    labelText: 'Name',
+                    labelText: 'Nama',
                   ),
                   onChanged: (value) {
                     setState(() {
@@ -122,7 +123,7 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
                   decoration: const InputDecoration(
-                    labelText: 'Grade',
+                    labelText: 'Akreditasi',
                   ),
                   value: grade,
                   items: grades
@@ -141,7 +142,7 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
                   decoration: const InputDecoration(
-                    labelText: 'Distance',
+                    labelText: 'Jarak',
                   ),
                   value: distance,
                   items: distances.map<DropdownMenuItem<int>>(
@@ -160,7 +161,7 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
                   decoration: const InputDecoration(
-                    labelText: 'Income',
+                    labelText: 'SPP',
                   ),
                   value: fee,
                   items: fees.map<DropdownMenuItem<int>>(
@@ -179,7 +180,7 @@ class _MyFormState extends State<MyForm> {
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
                   decoration: const InputDecoration(
-                    labelText: 'Number of Students',
+                    labelText: 'Daya tampung',
                   ),
                   value: students,
                   items: studentsList.map<DropdownMenuItem<int>>(
@@ -200,7 +201,7 @@ class _MyFormState extends State<MyForm> {
                   child: const Text('Submit'),
                   onPressed: () {
                     List<dynamic> filterOptions = [];
-                    filterOptions.add(grades[grade]['value']);
+                    filterOptions.add(grades[grade - 2]['value']);
                     filterOptions.add(distances[distance]['value']);
                     filterOptions.add(fees[fee]['value']);
                     filterOptions.add(studentsList[students]['value']);

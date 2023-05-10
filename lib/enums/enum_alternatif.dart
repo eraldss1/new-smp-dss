@@ -102,5 +102,250 @@ final List<Alternatif> alternatives = [
       ],
       result: 0.0,
       distance: 0.0),
+  Alternatif(
+      name: "SMP BUDI UTOMO",
+      criteriaValue: ['B', const LatLng(3.6137311, 98.5185939), 0, 202],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP METHODIST",
+      criteriaValue: ['A', const LatLng(3.6059724, 98.487973), 430000, 206],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP SATRIA NUSANTARA ",
+      criteriaValue: ['B', const LatLng(3.6089342, 98.5154833), 0, 13],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP YPIS MAJU",
+      criteriaValue: ['B', const LatLng(3.64606, 98.510347), 160000, 41],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP SWASTA ADVENT",
+      criteriaValue: [
+        'C',
+        const LatLng(3.6074446439918924, 98.51550644419581),
+        110000,
+        20
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP KARYA AGUNG",
+      criteriaValue: [
+        'B',
+        const LatLng(3.6146029622442706, 98.480723281770313),
+        0,
+        16
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP TELADAN",
+      criteriaValue: [
+        'B',
+        const LatLng(3.608510844989632, 98.48624483810082),
+        210000,
+        8
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP PAB 14",
+      criteriaValue: [
+        'C',
+        const LatLng(3.6255556814866727, 98.50667208177036),
+        0,
+        14
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP  ABDI NEGARA",
+      criteriaValue: [
+        'A',
+        const LatLng(3.652999063385862, 98.50985424655465),
+        0,
+        61
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP INSANI",
+      criteriaValue: [
+        'C',
+        const LatLng(3.61633356827241, 98.50102022327734),
+        80000,
+        8
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AN NAAS",
+      criteriaValue: [
+        'B',
+        const LatLng(3.6126322609210826, 98.50801476137813),
+        150000,
+        98
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP KHAIDIR NUR",
+      criteriaValue: [
+        'B',
+        const LatLng(3.5840953970785527, 98.47872206137812),
+        160000,
+        18
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AISYIYAH",
+      criteriaValue: [
+        'B',
+        const LatLng(3.625975096085693, 98.4953586431485),
+        80000,
+        110
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AL WASLIYAH (Kartini)",
+      criteriaValue: [
+        'B',
+        const LatLng(3.6040233116559093, 98.4869832817703),
+        0,
+        80
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP SWASTA KEJAYAAN INDONESIA",
+      criteriaValue: [
+        'A',
+        const LatLng(3.600357702261326, 98.48600763185969),
+        280000,
+        146
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AL WASLIYAH 48",
+      criteriaValue: [
+        'B',
+        const LatLng(3.62788906974865, 98.4944476),
+        70000,
+        37
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AL ISHLAIYAH",
+      criteriaValue: [
+        'B',
+        const LatLng(3.6075305565053384, 98.4887213836232),
+        0,
+        112
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP NURUL FURQON",
+      criteriaValue: [
+        'B',
+        const LatLng(3.606311950513535, 98.47134621245938),
+        110000,
+        109
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP AL MUSHLIHIN",
+      criteriaValue: ['B', const LatLng(3.600457, 98.47938499999998), 0, 204],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP NURUSSOBRI",
+      criteriaValue: [
+        'A',
+        const LatLng(3.6193744791758897, 98.50605838177034),
+        157000,
+        74
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP IT MARDIYAH",
+      criteriaValue: [
+        'B',
+        const LatLng(3.617722146514126, 98.52784997991742),
+        80000,
+        2
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP SWASTA PERMATA BANGSA",
+      criteriaValue: [
+        'A',
+        const LatLng(3.606933646327541, 98.47427646189918),
+        430000,
+        26
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP Swasta Great Prime School",
+      criteriaValue: ['C', const LatLng(3.607250, 98.486584), 360000, 29],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMPIT ALQURAN BAITUL IZZAH",
+      criteriaValue: ['B', const LatLng(3.5967824, 98.4577486), 80000, 31],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP IT KHALISHATURRAHMI",
+      criteriaValue: [
+        'B',
+        const LatLng(3.5798010228389354, 98.47752169529498),
+        200000,
+        31
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP Islam Terpadu Sahabat Al-Qur’an",
+      criteriaValue: [
+        'B',
+        const LatLng(3.6254319120523903, 98.51590751308846),
+        320000,
+        26
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP Swasta Istana Hati",
+      criteriaValue: [
+        'B',
+        const LatLng(3.616807466206913, 98.50860999319522),
+        330000,
+        30
+      ],
+      result: 0.0,
+      distance: 0.0),
+  Alternatif(
+      name: "SMP SWASTA SETIA BUDI",
+      criteriaValue: [
+        'A',
+        const LatLng(3.630255008553065, 98.49409267034873),
+        130000,
+        28
+      ],
+      result: 0.0,
+      distance: 0.0),
   // Alternatif(name: "", criteriaValue: [], result: 0.0),
 ];
