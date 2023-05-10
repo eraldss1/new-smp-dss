@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:latlng/latlng.dart';
 import 'package:new_smp_dss/enums/enum_alternatif.dart';
 import 'package:new_smp_dss/enums/enum_criteria.dart';
 import 'package:new_smp_dss/models/alternatif.dart';
 import 'package:new_smp_dss/models/criteria.dart';
 import 'package:new_smp_dss/service/waspas.dart';
 import 'package:new_smp_dss/ui/views/result_view.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:geolocator/geolocator.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -20,6 +23,9 @@ class _MyFormState extends State<MyForm> {
   int distance = 0;
   int fee = 0;
   int students = 0;
+
+  double userLat = 0;
+  double userLng = 0;
 
   final List<Map<String, dynamic>> grades = [
     {'title': 'D', 'value': 0},
@@ -52,6 +58,15 @@ class _MyFormState extends State<MyForm> {
     {'title': '> 300 Siswa per tahun ajaran', 'value': 3},
   ];
 
+  void _getCurrentLocation() async {
+    final position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    setState(() {
+      userLat = position.latitude;
+      userLng = position.longitude;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -74,6 +89,35 @@ class _MyFormState extends State<MyForm> {
                       name = value;
                     });
                   },
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    final status = await Permission.location.request();
+                    if (status == PermissionStatus.granted) {
+                      _getCurrentLocation();
+                    } else {
+                      // ignore: use_build_context_synchronously
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Location Permission'),
+                          content: const Text(
+                              'Location permission is required to use this feature.'),
+                          actions: <Widget>[
+                            TextButton(
+                              child: const Text('Cancel'),
+                              onPressed: () => Navigator.of(context).pop(),
+                            ),
+                            TextButton(
+                              child: const Text('Settings'),
+                              onPressed: () => openAppSettings(),
+                            ),
+                          ],
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text('Get Location'),
                 ),
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
@@ -163,9 +207,10 @@ class _MyFormState extends State<MyForm> {
 
                     List<Alternatif> la = [...alternatives];
                     List<Criteria> lc = [...criterias];
+                    LatLng userLocation = LatLng(userLat, userLng);
 
-                    var result =
-                        WaspasService().getWaspasRank(la, lc, filterOptions);
+                    var result = WaspasService()
+                        .getWaspasRank(la, lc, userLocation, filterOptions);
 
                     Navigator.push(
                         context,

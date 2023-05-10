@@ -28,17 +28,13 @@ class WaspasService {
   }
 
   // Ubah alternatif latlng ke jarak
-  List<Alternatif> latlngToDistance(List<Alternatif> la) {
+  List<Alternatif> latlngToDistance(List<Alternatif> la, LatLng origin) {
     HaversineService H = HaversineService();
-    LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
+    // LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
 
     var result = la;
     for (var element in result) {
       element.distance = H.haversineFormula(origin, element.criteriaValue[1]);
-
-      // if (kDebugMode) {
-      //   print(element.distance);
-      // }
     }
     return result;
   }
@@ -187,13 +183,17 @@ class WaspasService {
     return result;
   }
 
-  List<Alternatif> getWaspasRank(List<Alternatif> listAlternatif,
-      List<Criteria> listCriteria, List<dynamic> filterOptions) {
+  List<Alternatif> getWaspasRank(
+      List<Alternatif> listAlternatif,
+      List<Criteria> listCriteria,
+      LatLng userLocation,
+      List<dynamic> filterOptions) {
+    //
     List<Alternatif> result =
         listAlternatif.map((e) => Alternatif.clone(e)).toList();
 
     result = akreditasiToAngka(result);
-    result = latlngToDistance(result);
+    result = latlngToDistance(result, userLocation);
     result = filterData(result, filterOptions);
 
     List<List<double>> decisionMatrix = createDecisionMatrix(result);
@@ -203,7 +203,7 @@ class WaspasService {
 
     result = preferenceWeight(result, listCriteria, normalizedMatrix);
     result = sortAlternatif(result);
-    // result = result.sublist(0, 5);
+    result = result.sublist(0, 5);
 
     return result;
   }
