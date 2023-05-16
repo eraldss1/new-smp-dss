@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
-import 'package:new_smp_dss/enums/enum_alternatif.dart';
-import 'package:new_smp_dss/enums/enum_criteria.dart';
-import 'package:new_smp_dss/models/alternatif.dart';
-import 'package:new_smp_dss/models/criteria.dart';
-import 'package:new_smp_dss/service/waspas.dart';
-import 'package:new_smp_dss/ui/views/result_view.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
+
+import '../../enums/enum_alternatif.dart';
+import '../../enums/enum_criteria.dart';
+import '../../models/alternatif.dart';
+import '../../models/criteria.dart';
+import '../../service/waspas.dart';
+import 'result_view.dart';
 
 class MyForm extends StatefulWidget {
   const MyForm({super.key});
@@ -18,11 +19,11 @@ class MyForm extends StatefulWidget {
 }
 
 class _MyFormState extends State<MyForm> {
-  String name = "";
-  int grade = 5;
-  int distance = 0;
-  int fee = 0;
-  int students = 0;
+  String name = "fitri";
+  int grade = 4;
+  int distance = 4;
+  int fee = 4;
+  int students = 1;
 
   double userLat = 0;
   double userLng = 0;
@@ -64,8 +65,8 @@ class _MyFormState extends State<MyForm> {
       userLat = position.latitude;
       userLng = position.longitude;
     });
-    print(position.latitude);
-    print(position.longitude);
+    debugPrint(position.latitude.toString());
+    debugPrint(position.longitude.toString());
   }
 
   @override

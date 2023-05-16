@@ -1,4 +1,4 @@
-import 'package:new_smp_dss/models/criteria.dart';
+import '../models/criteria.dart';
 
 final List<Criteria> criterias = [
   Criteria(name: "Akreditasi", weight: 41, type: "Benefit"),

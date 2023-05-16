@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:new_smp_dss/models/alternatif.dart';
+import '../../enums/enum_alternatif.dart';
+import '../../models/alternatif.dart';
 
 class MyResultPage extends StatelessWidget {
   final List<Alternatif> result;
@@ -17,6 +18,12 @@ class MyResultPage extends StatelessWidget {
       return 'D';
     }
     return '';
+  }
+
+  String getSPP(String namaSekolah) {
+    List<Alternatif> la = [...alternatives];
+    la.retainWhere((element) => element.name == namaSekolah);
+    return la[0].criteriaValue[3].toString();
   }
 
   @override
@@ -49,7 +56,7 @@ class MyResultPage extends StatelessWidget {
                                 //
                                 const Text('Jarak'),
                                 Text(
-                                    "${result[index].distance.toStringAsFixed(2)} Km"),
+                                    "${result[index].jarak.toStringAsFixed(2)} Km"),
                                 const Padding(padding: EdgeInsets.all(5)),
                                 //
                                 const Text('SPP'),

@@ -1,47 +1,71 @@
 import 'package:latlng/latlng.dart';
-import 'package:new_smp_dss/models/alternatif.dart';
+import '../models/alternatif.dart';
 
 final List<Alternatif> alternatives = [
   Alternatif(
       name: "SMP SWASTA MUHAMMADIYAH 56",
       criteriaValue: ['B', const LatLng(3.6155248, 98.5269997), 120000, 78],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP MUHAMMADIYAH 12",
       criteriaValue: ["B", const LatLng(3.604607, 98.486002), 70000, 41],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AN NADWA ISLAMIC CENTRE",
       criteriaValue: ["B", const LatLng(3.6211032, 98.5093101), 120000, 26],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP TAMAN SISWA",
       criteriaValue: ["B", const LatLng(3.6037459, 98.4811591), 170000, 21],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AHMAD YANI",
       criteriaValue: ["A", const LatLng(3.611526, 98.492154), 460000, 104],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP PALAPA",
       criteriaValue: ["A", const LatLng(3.55941, 98.4964847), 15000, 15],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP GAJAH MADA",
       criteriaValue: ["A", const LatLng(3.6462774, 98.4655655), 320000, 29],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP ST. THOMAS 2",
       criteriaValue: ["A", const LatLng(3.6067025, 98.5041707), 250000, 32],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP MELATI",
       criteriaValue: [
@@ -51,7 +75,10 @@ final List<Alternatif> alternatives = [
         22
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP PABA",
       criteriaValue: [
@@ -61,7 +88,10 @@ final List<Alternatif> alternatives = [
         58
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL FITYAH",
       criteriaValue: [
@@ -71,7 +101,10 @@ final List<Alternatif> alternatives = [
         58
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL KAFFAH",
       criteriaValue: [
@@ -81,7 +114,10 @@ final List<Alternatif> alternatives = [
         55
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP IT YAYASAN HAJJAH FAUZIAH",
       criteriaValue: [
@@ -91,7 +127,10 @@ final List<Alternatif> alternatives = [
         27
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP ISLAM TERPADU AZIZIYAH",
       criteriaValue: [
@@ -101,27 +140,42 @@ final List<Alternatif> alternatives = [
         73
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP BUDI UTOMO",
       criteriaValue: ['B', const LatLng(3.6137311, 98.5185939), 0, 202],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP METHODIST",
       criteriaValue: ['A', const LatLng(3.6059724, 98.487973), 430000, 206],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP SATRIA NUSANTARA ",
       criteriaValue: ['B', const LatLng(3.6089342, 98.5154833), 0, 13],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP YPIS MAJU",
       criteriaValue: ['B', const LatLng(3.64606, 98.510347), 160000, 41],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP SWASTA ADVENT",
       criteriaValue: [
@@ -131,7 +185,10 @@ final List<Alternatif> alternatives = [
         20
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP KARYA AGUNG",
       criteriaValue: [
@@ -141,7 +198,10 @@ final List<Alternatif> alternatives = [
         16
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP TELADAN",
       criteriaValue: [
@@ -151,7 +211,10 @@ final List<Alternatif> alternatives = [
         8
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP PAB 14",
       criteriaValue: [
@@ -161,7 +224,10 @@ final List<Alternatif> alternatives = [
         14
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP  ABDI NEGARA",
       criteriaValue: [
@@ -171,7 +237,10 @@ final List<Alternatif> alternatives = [
         61
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP INSANI",
       criteriaValue: [
@@ -181,7 +250,10 @@ final List<Alternatif> alternatives = [
         8
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AN NAAS",
       criteriaValue: [
@@ -191,7 +263,10 @@ final List<Alternatif> alternatives = [
         98
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP KHAIDIR NUR",
       criteriaValue: [
@@ -201,7 +276,10 @@ final List<Alternatif> alternatives = [
         18
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AISYIYAH",
       criteriaValue: [
@@ -211,7 +289,10 @@ final List<Alternatif> alternatives = [
         110
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL WASLIYAH (Kartini)",
       criteriaValue: [
@@ -221,7 +302,10 @@ final List<Alternatif> alternatives = [
         80
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP SWASTA KEJAYAAN INDONESIA",
       criteriaValue: [
@@ -231,7 +315,10 @@ final List<Alternatif> alternatives = [
         146
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL WASLIYAH 48",
       criteriaValue: [
@@ -241,7 +328,10 @@ final List<Alternatif> alternatives = [
         37
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL ISHLAIYAH",
       criteriaValue: [
@@ -251,7 +341,10 @@ final List<Alternatif> alternatives = [
         112
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP NURUL FURQON",
       criteriaValue: [
@@ -261,12 +354,18 @@ final List<Alternatif> alternatives = [
         109
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP AL MUSHLIHIN",
       criteriaValue: ['B', const LatLng(3.600457, 98.47938499999998), 0, 204],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP NURUSSOBRI",
       criteriaValue: [
@@ -276,7 +375,10 @@ final List<Alternatif> alternatives = [
         74
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP IT MARDIYAH",
       criteriaValue: [
@@ -286,7 +388,10 @@ final List<Alternatif> alternatives = [
         2
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP SWASTA PERMATA BANGSA",
       criteriaValue: [
@@ -296,17 +401,26 @@ final List<Alternatif> alternatives = [
         26
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP Swasta Great Prime School",
       criteriaValue: ['C', const LatLng(3.607250, 98.486584), 360000, 29],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMPIT ALQURAN BAITUL IZZAH",
       criteriaValue: ['B', const LatLng(3.5967824, 98.4577486), 80000, 31],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP IT KHALISHATURRAHMI",
       criteriaValue: [
@@ -316,7 +430,10 @@ final List<Alternatif> alternatives = [
         31
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP Islam Terpadu Sahabat Al-Qur’an",
       criteriaValue: [
@@ -326,7 +443,10 @@ final List<Alternatif> alternatives = [
         26
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP Swasta Istana Hati",
       criteriaValue: [
@@ -336,7 +456,10 @@ final List<Alternatif> alternatives = [
         30
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   Alternatif(
       name: "SMP SWASTA SETIA BUDI",
       criteriaValue: [
@@ -346,6 +469,9 @@ final List<Alternatif> alternatives = [
         28
       ],
       result: 0.0,
-      distance: 0.0),
+      akreditasi: 0.0,
+      jarak: 0.0,
+      spp: 0.0,
+      dayaTampung: 0.0),
   // Alternatif(name: "", criteriaValue: [], result: 0.0),
 ];
