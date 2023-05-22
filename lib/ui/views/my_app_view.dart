@@ -19,11 +19,11 @@ class MyForm extends StatefulWidget {
 }
 
 class _MyFormState extends State<MyForm> {
-  String name = "fitri";
-  int grade = 4;
-  int distance = 4;
-  int fee = 4;
-  int students = 1;
+  String name = "";
+  int grade = 5;
+  int distance = 0;
+  int fee = 0;
+  int students = 0;
 
   double userLat = 0;
   double userLng = 0;
@@ -74,7 +74,7 @@ class _MyFormState extends State<MyForm> {
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
-          title: const Text('Waspas'),
+          title: const Text('Aplikasi WASPAS SMP Swasta'),
         ),
         body: Container(
           padding: const EdgeInsets.all(16.0),
@@ -119,7 +119,7 @@ class _MyFormState extends State<MyForm> {
                       );
                     }
                   },
-                  child: const Text('Get Location'),
+                  child: const Text('Ambil Lokasi'),
                 ),
                 const SizedBox(height: 16.0),
                 DropdownButtonFormField<int>(
@@ -199,7 +199,7 @@ class _MyFormState extends State<MyForm> {
                 ),
                 const SizedBox(height: 16.0),
                 TextButton(
-                  child: const Text('Submit'),
+                  child: const Text('Kirim'),
                   onPressed: () {
                     List<dynamic> filterOptions = [];
                     filterOptions.add(grades[grade - 2]['value']);

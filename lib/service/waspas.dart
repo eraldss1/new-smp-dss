@@ -16,10 +16,10 @@ class WaspasService {
   };
 
   final Map<String, dynamic> fees = {
-    "25.000": 0,
-    "50.000": 26000,
-    "75.000": 51000,
-    "100.000": 7.000,
+    "25000": 0,
+    "50000": 26000,
+    "75000": 51000,
+    "100000": 7.000,
     "1000000": 100000
   };
 
@@ -284,7 +284,7 @@ class WaspasService {
             element.jarak <= filterOptions[1] &&
             // rentang
             element.criteriaValue[2] <= filterOptions[2] &&
-            element.criteriaValue[3] >= filterOptions[3])
+            element.criteriaValue[3] <= filterOptions[3])
         .toList();
 
     // List<Alternatif> result =
@@ -365,7 +365,7 @@ class WaspasService {
       }
 
       temp += "${res.criteriaValue[3]}";
-      if (res.criteriaValue[3] >= dapung[filterOptions[3].toString()]) {
+      if (res.criteriaValue[3] <= dapung[filterOptions[3].toString()]) {
         temp += " (sesuai);";
         sesuai++;
       } else {

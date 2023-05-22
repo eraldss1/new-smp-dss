@@ -30,7 +30,7 @@ class MyResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('Hasil WASPAS'),
+          title: const Text('Hasil Rekomendasi WASPAS'),
         ),
         body: result.isNotEmpty
             ? ListView.builder(
@@ -50,8 +50,7 @@ class MyResultPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 const Text('Akreditasi'),
-                                Text(getAkreditasi(
-                                    result[index].criteriaValue[0])),
+                                Text(result[index].criteriaValue[0]),
                                 const Padding(padding: EdgeInsets.all(5)),
                                 //
                                 const Text('Jarak'),
@@ -82,7 +81,9 @@ class MyResultPage extends StatelessWidget {
               )
             // ignore: avoid_unnecessary_containers
             : Container(
-                child: const Text('Kosong'),
+                child: const Text(
+                    'Sekolah dengan kriteria tersebut tidak ditemukan'),
+                margin: EdgeInsets.all(50),
               ));
   }
 }
