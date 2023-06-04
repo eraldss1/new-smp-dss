@@ -51,12 +51,12 @@ class WaspasService {
   // Ubah alternatif latlng ke jarak
   List<Alternatif> latlngToDistance(List<Alternatif> la, LatLng origin) {
     HaversineService H = HaversineService();
-    LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
+    // LatLng origin = const LatLng(3.6226818838159516, 98.48055583231027);
 
     List<Alternatif> result = la.map((e) => Alternatif.clone(e)).toList();
     for (int i = 0; i < result.length; i++) {
       result[i].jarak = H.haversineFormula(origin, result[i].criteriaValue[1]);
-      // debugPrint(element.distance);
+      debugPrint(result[i].name + " " + result[i].jarak.toStringAsFixed(2));
     }
     return result;
   }
@@ -329,55 +329,6 @@ class WaspasService {
     // if (result.length > 5) {
     //   result = result.sublist(0, 5);
     // }
-
-    // debugPrint table akurasi
-    String temp = "";
-    int ind = 0;
-    int sesuai = 0;
-    int totalData = 0;
-
-    for (var res in result) {
-      temp += '${++ind};';
-
-      temp += "${res.criteriaValue[0]}";
-      if (grades[res.criteriaValue[0]] >= filterOptions[0]) {
-        temp += " (sesuai);";
-        sesuai++;
-      } else {
-        temp += " (tidak sesuai);";
-      }
-
-      temp += res.jarak.toStringAsFixed(2);
-      if (res.jarak <= filterOptions[1]) {
-        temp += " (sesuai);";
-        sesuai++;
-      } else {
-        temp += " (tidak sesuai);";
-      }
-
-      temp += "${res.criteriaValue[2]}";
-      if (res.criteriaValue[2] >= fees[filterOptions[2].toString()] &&
-          res.criteriaValue[2] <= filterOptions[2]) {
-        temp += " (sesuai);";
-        sesuai++;
-      } else {
-        temp += " (tidak sesuai);";
-      }
-
-      temp += "${res.criteriaValue[3]}";
-      if (res.criteriaValue[3] <= dapung[filterOptions[3].toString()]) {
-        temp += " (sesuai);";
-        sesuai++;
-      } else {
-        temp += " (tidak sesuai);";
-      }
-
-      debugPrint(temp);
-      temp = "";
-      totalData++;
-    }
-    debugPrint("Sesuai: $sesuai");
-    debugPrint("Total data: ${totalData * 4}");
 
     return result;
   }

@@ -29,33 +29,3 @@ class Alternatif {
         dayaTampung: source.dayaTampung);
   }
 }
-
-// import 'package:flutter/material.dart';
-
-// @immutable
-// class Alternatif {
-//   final String name;
-//   final List<dynamic> criteriaValue;
-//   final double result;
-//   final double distance;
-
-//   // constructor
-//   const Alternatif(
-//       {required this.name,
-//       required this.criteriaValue,
-//       required this.result,
-//       required this.distance});
-
-//   Alternatif copyWith(
-//       {String? name,
-//       List<dynamic>? criteriaValue,
-//       double? result,
-//       double? distance}) {
-//     return Alternatif(
-//         name: name ?? this.name,
-//         criteriaValue: criteriaValue ?? this.criteriaValue,
-//         result: result ?? this.result,
-//         distance: distance ?? this.distance);
-//   }
-// }
-

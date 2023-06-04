@@ -81,9 +81,9 @@ class MyResultPage extends StatelessWidget {
               )
             // ignore: avoid_unnecessary_containers
             : Container(
+                margin: const EdgeInsets.all(50),
                 child: const Text(
                     'Sekolah dengan kriteria tersebut tidak ditemukan'),
-                margin: EdgeInsets.all(50),
               ));
   }
 }

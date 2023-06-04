@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:latlng/latlng.dart';
-import 'package:permission_handler/permission_handler.dart';
 import 'package:geolocator/geolocator.dart';
 
 import '../../enums/enum_alternatif.dart';
@@ -24,6 +23,11 @@ class _MyFormState extends State<MyForm> {
   int distance = 0;
   int fee = 0;
   int students = 0;
+
+  bool servicestatus = false;
+  bool haspermission = false;
+  late LocationPermission permission;
+  late Position position;
 
   double userLat = 0;
   double userLng = 0;
@@ -58,15 +62,44 @@ class _MyFormState extends State<MyForm> {
     {'title': '> 300 Siswa per tahun ajaran', 'value': 3},
   ];
 
-  void _getCurrentLocation() async {
-    final position = await Geolocator.getCurrentPosition(
+  getLocation() async {
+    position = await Geolocator.getCurrentPosition(
         desiredAccuracy: LocationAccuracy.high);
+
+    debugPrint(position.longitude.toString());
+    debugPrint(position.latitude.toString());
+
     setState(() {
       userLat = position.latitude;
       userLng = position.longitude;
     });
-    debugPrint(position.latitude.toString());
-    debugPrint(position.longitude.toString());
+  }
+
+  checkGps() async {
+    servicestatus = await Geolocator.isLocationServiceEnabled();
+    if (servicestatus) {
+      permission = await Geolocator.checkPermission();
+
+      if (permission == LocationPermission.denied) {
+        permission = await Geolocator.requestPermission();
+
+        if (permission == LocationPermission.denied) {
+          debugPrint('Location permissions are denied');
+        } else if (permission == LocationPermission.deniedForever) {
+          debugPrint("'Location permissions are permanently denied");
+        } else {
+          haspermission = true;
+        }
+      } else {
+        haspermission = true;
+      }
+
+      if (haspermission) {
+        getLocation();
+      }
+    } else {
+      debugPrint("GPS Service is not enabled, turn on GPS location");
+    }
   }
 
   @override
@@ -92,32 +125,10 @@ class _MyFormState extends State<MyForm> {
                     });
                   },
                 ),
+                const SizedBox(height: 16.0),
                 ElevatedButton(
                   onPressed: () async {
-                    final status = await Permission.location.request();
-                    if (status == PermissionStatus.granted) {
-                      _getCurrentLocation();
-                    } else {
-                      // ignore: use_build_context_synchronously
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Location Permission'),
-                          content: const Text(
-                              'Location permission is required to use this feature.'),
-                          actions: <Widget>[
-                            TextButton(
-                              child: const Text('Cancel'),
-                              onPressed: () => Navigator.of(context).pop(),
-                            ),
-                            TextButton(
-                              child: const Text('Settings'),
-                              onPressed: () => openAppSettings(),
-                            ),
-                          ],
-                        ),
-                      );
-                    }
+                    await checkGps();
                   },
                   child: const Text('Ambil Lokasi'),
                 ),
