@@ -86,7 +86,7 @@ class _MyFormState extends State<MyForm> {
         if (permission == LocationPermission.denied) {
           debugPrint('Location permissions are denied');
         } else if (permission == LocationPermission.deniedForever) {
-          debugPrint("'Location permissions are permanently denied");
+          debugPrint("Location permissions are permanently denied");
         } else {
           haspermission = true;
         }
@@ -225,11 +225,35 @@ class _MyFormState extends State<MyForm> {
                     var result = WaspasService()
                         .getWaspasRank(la, lc, userLocation, filterOptions);
 
-                    Navigator.push(
+                    if (result.isNotEmpty) {
+                      Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                MyResultPage(result: result)));
+                          builder: (context) => MyResultPage(
+                            result: result,
+                            noResult: false,
+                          ),
+                        ),
+                      );
+                    } else {
+                      filterOptions[0] = 2;
+                      filterOptions[1] = 4;
+                      filterOptions[2] = 4;
+                      filterOptions[3] = 3;
+
+                      result = WaspasService()
+                          .getWaspasRank(la, lc, userLocation, filterOptions);
+
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyResultPage(
+                            result: result.sublist(0, 5),
+                            noResult: true,
+                          ),
+                        ),
+                      );
+                    }
                   },
                 ),
               ],

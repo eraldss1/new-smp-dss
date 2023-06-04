@@ -326,10 +326,6 @@ class WaspasService {
     result = preferenceWeight(result, listCriteria, normalizedMatrix);
     result = sortAlternatif(result);
 
-    // if (result.length > 5) {
-    //   result = result.sublist(0, 5);
-    // }
-
     return result;
   }
 }

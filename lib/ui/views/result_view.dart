@@ -1,11 +1,14 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '../../enums/enum_alternatif.dart';
 import '../../models/alternatif.dart';
 
 class MyResultPage extends StatelessWidget {
   final List<Alternatif> result;
+  final bool noResult;
 
-  const MyResultPage({super.key, required this.result});
+  const MyResultPage({super.key, required this.result, required this.noResult});
 
   String getAkreditasi(int akreditasiNumber) {
     if (akreditasiNumber == 5) {
@@ -32,8 +35,11 @@ class MyResultPage extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Hasil Rekomendasi WASPAS'),
         ),
-        body: result.isNotEmpty
-            ? ListView.builder(
+        body: Column(
+          children: [
+            noResult ? myMessage() : Container(),
+            Expanded(
+              child: ListView.builder(
                 itemCount: result.length,
                 itemBuilder: (BuildContext context, int index) {
                   return ListTile(
@@ -78,12 +84,43 @@ class MyResultPage extends StatelessWidget {
                     },
                   );
                 },
-              )
-            // ignore: avoid_unnecessary_containers
-            : Container(
-                margin: const EdgeInsets.all(50),
-                child: const Text(
-                    'Sekolah dengan kriteria tersebut tidak ditemukan'),
-              ));
+              ),
+            ),
+          ],
+        )
+        // ignore: avoid_unnecessary_containers
+        );
+  }
+
+  Widget myMessage() {
+    return Column(
+      children: [
+        Container(
+          alignment: Alignment.center,
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+          height: 70,
+          color: const Color.fromARGB(255, 220, 53, 69),
+          child: const Text(
+            'Sekolah dengan kriteria tersebut tidak ditemukan!',
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.all(13),
+          alignment: Alignment.centerLeft,
+          child: const Text(
+            'Beberapa rekomendasi sekolah :',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+        ),
+      ],
+    );
   }
 }
